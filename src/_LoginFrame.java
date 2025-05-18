@@ -80,10 +80,7 @@ public class _LoginFrame {
 		JButton UserBtn = new JButton("사용자용");
 		UserBtn.setBackground(new Color(152, 251, 152));
 		UserBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 28));
-		UserBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		UserBtn.addActionListener(e -> UserAction());
 		UserBtn.setBounds(800, 250, 300, 300);
 		frame.getContentPane().add(UserBtn);
 		
@@ -104,6 +101,23 @@ public class _LoginFrame {
 			//현재 로그인 창은 닫는다.
 			frame.dispose();
 		}
+	}
+	
+	private void UserAction() {
+		//DB를 연결하는 함수를 호출한다.
+		conn = DBUtil.getUserConnection();
+		//만약 연결된 DB가 없는 경우
+		if(conn == null) {
+			//오류 메시지를 표시한다.
+			JOptionPane.showMessageDialog(frame, "DB 연결 실패!", "ERROR", JOptionPane.ERROR_MESSAGE );
+		}
+		else {//정상적으로 DB가 연결된 경우
+			//관리자 전용 창을 연다.
+			new _UserLoginFrame().setVisible(true);
+			//현재 로그인 창은 닫는다.
+			frame.dispose();
+		}
+		
 	}
 	
 }
