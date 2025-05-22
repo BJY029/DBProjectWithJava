@@ -52,8 +52,20 @@ public class _AdminFrame {
 		JButton InitBtn = new JButton("캠핑카 DB 초기화하기");
 		InitBtn.addActionListener(e->InitDBAction());
 		InitBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		InitBtn.setBounds(22, 65, 249, 70);
+		InitBtn.setBounds(32, 64, 297, 70);
 		frame.getContentPane().add(InitBtn);
+		
+		JButton AllTableBtn = new JButton("모든 테이블 조회하기");
+		AllTableBtn.addActionListener(e -> AllTableViewAction());
+		AllTableBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		AllTableBtn.setBounds(32, 144, 297, 70);
+		frame.getContentPane().add(AllTableBtn);
+		
+		JButton ViewCampingCars = new JButton("캠핑카 정비 기록 조회하기");
+		ViewCampingCars.addActionListener(e->ViewCampingCarsAction());
+		ViewCampingCars.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		ViewCampingCars.setBounds(32, 224, 297, 70);
+		frame.getContentPane().add(ViewCampingCars);
 	}
 
 	public void setVisible(boolean b) {
@@ -113,5 +125,13 @@ public class _AdminFrame {
 		    JOptionPane.showMessageDialog(null, "실행 실패: " + ex.getMessage());
 		}
 		
+	}
+	
+	private void AllTableViewAction() {
+		new _AllTablesFrame().setVisible(true);
+	}
+	
+	private void ViewCampingCarsAction() {
+		new _ViewCampingCars().setVisible(true);
 	}
 }
