@@ -227,6 +227,7 @@ CREATE USER IF NOT EXISTS 'user1'@'localhost' IDENTIFIED BY 'user1';
 GRANT SELECT, INSERT, UPDATE, DELETE ON DBTEST.Rent TO 'user1'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON DBTEST.Customer TO 'user1'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON DBTEST.CustRepair TO 'user1'@'localhost';
+GRANT SELECT ON DBTEST.Cars TO 'user1'@'localhost';
 flush privileges;
 
 insert into company values(1, '우리렌트카', '서울시 광진구', '010-1234-5678', '김우리', 'woori@email.com');
@@ -246,18 +247,42 @@ insert into company values(12, '트레일리', '광주시 서구', '010-5548-952
 INSERT INTO Cars 
 (CarID, CompanyID, CarName, CarNum, CarMaxPsg, CarImgURL, CarDesc, CarRentPrice, CarRegDate) 
 VALUES
-(101, 1, '캠핑스타 300', '12가3456', 4, 'http://img.com/car1.jpg', '소형 가족용 캠핑카', 90000, '2024-01-10'),
-(102, 2, '힐링카라반 X', '23나5678', 6, 'http://img.com/car2.jpg', '6인용 중형 캠핑카, 샤워 가능', 120000, '2024-02-05'),
-(103, 3, '오로라 V8', '34다6789', 8, 'http://img.com/car3.jpg', '대형 캠핑카, 화장실/침대 포함', 180000, '2023-11-15'),
-(104, 4, '나들이 캠핑카 A', '45라1234', 2, 'http://img.com/car4.jpg', '커플용 미니 캠핑카', 70000, '2024-03-01'),
-(105, 5, '프렌즈 캠핑카', '56마2345', 5, 'http://img.com/car5.jpg', '친구들과 떠나는 여행용 중형 캠핑카', 110000, '2024-01-28'),
-(106, 6, '썬라이즈 C7', '67바6789', 3, 'http://img.com/car6.jpg', '소형 전기 캠핑카', 85000, '2023-12-10'),
-(107, 7, '드림카라반 L', '78사9999', 6, 'http://img.com/car7.jpg', '주방 포함 풀옵션 캠핑카', 125000, '2023-09-19'),
-(108, 8, '아웃도어 S1', '89아1111', 7, 'http://img.com/car8.jpg', '넓은 공간의 프리미엄 캠핑카', 155000, '2024-04-10'),
-(109, 9, '캠핑이랑 C-Lite', '90자2222', 4, 'http://img.com/car9.jpg', '초보자용 경량 캠핑카', 95000, '2024-02-22'),
-(110, 10, '로드트립 V1', '01차3333', 6, 'http://img.com/car10.jpg', '고속도로 주행에 최적화된 캠핑카', 115000, '2023-10-03'),
-(111, 11, '해피트럭 Camper', '12카4444', 3, 'http://img.com/car11.jpg', '트럭 기반의 실속형 캠핑카', 78000, '2023-12-27'),
-(112, 12, '피크닉캠퍼 Z', '13타5555', 5, 'http://img.com/car12.jpg', '온가족을 위한 최적 캠핑카', 102000, '2024-03-17');
+(101, 1, '캠핑스타 300', '12가3456', 4, 
+'https://drive.google.com/file/d/12k-ewC2Khk-c-Wyv84WeWh6ujwH0FCRh/view?usp=drive_link',
+ '소형 가족용 캠핑카', 90000, '2024-01-10'),
+(102, 2, '힐링카라반 X', '23나5678', 6, 
+'https://drive.google.com/file/d/15z3EpSeiRmRNcJ7pR_lFRWbF4pLBulrm/view?usp=drive_link', 
+'6인용 중형 캠핑카, 샤워 가능', 120000, '2024-02-05'),
+(103, 3, '오로라 V8', '34다6789', 8, 
+'https://drive.google.com/file/d/1lZEm2EEu41nFFm8F17JPq9Vt-J__CabA/view?usp=drive_link'
+, '대형 캠핑카, 화장실/침대 포함', 180000, '2023-11-15'),
+(104, 4, '나들이 캠핑카 A', '45라1234', 2, 
+'https://drive.google.com/file/d/17lDCugQEp9ArEK4IDFiWu-cefcFo6qej/view?usp=drive_link'
+, '커플용 미니 캠핑카', 70000, '2024-03-01'),
+(105, 5, '프렌즈 캠핑카', '56마2345', 5, 
+'https://drive.google.com/file/d/1ZovaUqaWuJJ2b1TxovNQh2PXZ41JY296/view?usp=drive_link'
+, '친구들과 떠나는 여행용 중형 캠핑카', 110000, '2024-01-28'),
+(106, 6, '썬라이즈 C7', '67바6789', 3, 
+'https://drive.google.com/file/d/1ppOnwyj_c83DM1r-h4MH-NoL8ZczfwC8/view?usp=drive_link',
+ '소형 전기 캠핑카', 85000, '2023-12-10'),
+(107, 7, '드림카라반 L', '78사9999', 6,
+ 'https://drive.google.com/file/d/1yNSAk3rEIKSVfecL3Wq1cJj-fyBq19mh/view?usp=drive_link', 
+ '주방 포함 풀옵션 캠핑카', 125000, '2023-09-19'),
+(108, 8, '아웃도어 S1', '89아1111', 7, 
+'https://drive.google.com/file/d/15h5ZBLbi21tdx_8c8E1P8Ile7oVinG9g/view?usp=drive_link',
+ '넓은 공간의 프리미엄 캠핑카', 155000, '2024-04-10'),
+(109, 9, '캠핑이랑 C-Lite', '90자2222', 4,
+ 'https://drive.google.com/file/d/1HHI8Cr6L8lUDQILE9xABWZg9FXCXKM9b/view?usp=drive_link', 
+ '초보자용 경량 캠핑카', 95000, '2024-02-22'),
+(110, 10, '로드트립 V1', '01차3333', 6, 
+'https://drive.google.com/file/d/1twedpkLN_l0L-3vmUnpggypgtKRPRwIK/view?usp=drive_link', 
+'고속도로 주행에 최적화된 캠핑카', 115000, '2023-10-03'),
+(111, 11, '해피트럭 Camper', '12카4444', 3, 
+'https://drive.google.com/file/d/15ouzG_Pmc3gH6CnYyrL7YbU3BSq9z2ID/view?usp=drive_link', 
+'트럭 기반의 실속형 캠핑카', 78000, '2023-12-27'),
+(112, 12, '피크닉캠퍼 Z', '13타5555', 5,
+ 'https://drive.google.com/file/d/15PZ5ePBp9aX2oBXVGd9-erdyBYjsDaTF/view?usp=drive_link', 
+ '온가족을 위한 최적 캠핑카', 102000, '2024-03-17');
 
 INSERT INTO Parts (PartID, PartName, PartPrice, PartCnt, PartReceiptDate, PartCompany) VALUES
 (201, '브레이크 패드', 35000, 20, '2024-01-10', '오토코리아'),
