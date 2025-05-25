@@ -13,7 +13,7 @@ USE DBTEST;
 -- Table `DBTEST`.`Company`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`Company` (
-  `CompanyId` INT NOT NULL,
+  `CompanyId` INT NOT NULL auto_increment,
   `CompanyName` VARCHAR(45) NOT NULL,
   `Address` VARCHAR(100) NOT NULL,
   `OfficeNum` VARCHAR(30) NOT NULL,
@@ -27,7 +27,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`Cars`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`Cars` (
-  `CarID` INT NOT NULL,
+  `CarID` INT NOT NULL auto_increment,
   `CompanyId` INT NOT NULL,
   `CarName` VARCHAR(45) NOT NULL,
   `CarNum` VARCHAR(45) NULL,
@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`Parts`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`Parts` (
-  `PartID` INT NOT NULL,
+  `PartID` INT NOT NULL auto_increment,
   `PartName` VARCHAR(45) NULL,
   `PartPrice` INT NULL,
   `PartCnt` INT NULL,
@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`CarMaintenance`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`CarMaintenance` (
-  `MtaID` INT NOT NULL,
+  `MtaID` INT NOT NULL auto_increment,
   `CarID` INT NOT NULL,
   `PartID` INT NOT NULL,
   `MtaDate` DATE NULL,
@@ -91,7 +91,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`employee` (
-  `empID` INT NOT NULL,
+  `empID` INT NOT NULL auto_increment,
   `empName` VARCHAR(45) NULL,
   `empPhone` VARCHAR(30) NULL,
   `empAddress` VARCHAR(100) NULL,
@@ -126,7 +126,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`RepairShop`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`RepairShop` (
-  `RPID` INT NOT NULL,
+  `RPID` INT NOT NULL auto_increment,
   `RPName` VARCHAR(45) NULL,
   `RPAddress` VARCHAR(100) NULL,
   `RPPhone` VARCHAR(30) NULL,
@@ -140,7 +140,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`Rent`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`Rent` (
-  `RentID` INT NOT NULL,
+  `RentID` INT NOT NULL auto_increment,
   `CompanyId` INT NOT NULL,
   `CarID` INT NOT NULL,
   `LicenseNum` VARCHAR(45) NOT NULL,
@@ -176,7 +176,7 @@ ENGINE = InnoDB;
 -- Table `DBTEST`.`CustRepair`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `DBTEST`.`CustRepair` (
-  `CustRepairID` INT NOT NULL,
+  `CustRepairID` INT NOT NULL auto_increment,
   `CarID` INT NOT NULL,
   `RPID` INT NOT NULL,
   `CompanyId` INT NOT NULL,

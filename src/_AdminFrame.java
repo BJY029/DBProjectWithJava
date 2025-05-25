@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import InsertFrames._InsertTableMainFrame;
+import InsertFrames._SelectFrame;
+import InsertFrames._UpdateDeleteFrame;
+
 import java.io.*;
 
 import java.awt.BorderLayout;
@@ -58,14 +62,32 @@ public class _AdminFrame {
 		JButton AllTableBtn = new JButton("모든 테이블 조회하기");
 		AllTableBtn.addActionListener(e -> AllTableViewAction());
 		AllTableBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		AllTableBtn.setBounds(32, 144, 297, 70);
+		AllTableBtn.setBounds(32, 271, 297, 70);
 		frame.getContentPane().add(AllTableBtn);
 		
 		JButton ViewCampingCars = new JButton("캠핑카 정비 기록 조회하기");
 		ViewCampingCars.addActionListener(e->ViewCampingCarsAction());
 		ViewCampingCars.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		ViewCampingCars.setBounds(32, 224, 297, 70);
+		ViewCampingCars.setBounds(32, 489, 297, 70);
 		frame.getContentPane().add(ViewCampingCars);
+		
+		JButton InsertTableBtn = new JButton("테이블 레코드 삽입하기");
+		InsertTableBtn.addActionListener(e -> InsertTableAction());
+		InsertTableBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		InsertTableBtn.setBounds(341, 271, 297, 70);
+		frame.getContentPane().add(InsertTableBtn);
+		
+		JButton UpdateDeleteTableBtn = new JButton("테이블 레코드 수정/삭제");
+		UpdateDeleteTableBtn.addActionListener(e->UpdateDeleteAction());
+		UpdateDeleteTableBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		UpdateDeleteTableBtn.setBounds(650, 271, 297, 70);
+		frame.getContentPane().add(UpdateDeleteTableBtn);
+		
+		JButton SelectBtn = new JButton("질의문 입력하기");
+		SelectBtn.addActionListener(e->SelectAction());
+		SelectBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		SelectBtn.setBounds(341, 489, 297, 70);
+		frame.getContentPane().add(SelectBtn);
 	}
 
 	public void setVisible(boolean b) {
@@ -133,5 +155,17 @@ public class _AdminFrame {
 	
 	private void ViewCampingCarsAction() {
 		new _ViewCampingCars().setVisible(true);
+	}
+	
+	private void InsertTableAction() {
+		new _InsertTableMainFrame().setVisible(true);
+	}
+	
+	private void UpdateDeleteAction() {
+		new _UpdateDeleteFrame().setVisible(true);
+	}
+	
+	private void SelectAction() {
+		new _SelectFrame().setVisible(true);
 	}
 }
