@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 public class _UserFrame {
 	private Connection conn;
 	private JFrame frame;
-
+	private int UserID;
 
 	/**
 	 * Create the application.
@@ -44,21 +44,32 @@ public class _UserFrame {
 		lblNewLabel.setBounds(12, 10, 132, 37);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton ViewBtn = new JButton("캠핑카 조회하기");
+		JButton ViewBtn = new JButton("캠핑카 조회/에약하기");
 		ViewBtn.addActionListener(e->ViewCampingCarAction());
 		ViewBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		ViewBtn.setBounds(149, 267, 282, 68);
 		frame.getContentPane().add(ViewBtn);
 		
+		JButton ShowBtn = new JButton("예약 내역 확인/변경하기");
+		ShowBtn.addActionListener(e->CheckRentAction());
+		ShowBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		ShowBtn.setBounds(149, 381, 282, 68);
+		frame.getContentPane().add(ShowBtn);
+		
 
 		
 	}
 
-	public void setVisible(boolean b) {
+	public void setVisible(boolean b, int userID) {
+		UserID = userID;
 		frame.setVisible(b);
 	}
 	
+	public void CheckRentAction() {
+		new _UserCheckRentFrame().setVisible(true, UserID);
+	}
+	
 	private void ViewCampingCarAction() {
-		new _UserViewCampingCarFrame().setVisible(true);
+		new _UserViewCampingCarFrame().setVisible(true, UserID);
 	}
 }

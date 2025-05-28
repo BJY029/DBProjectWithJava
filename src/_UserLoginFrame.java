@@ -143,8 +143,9 @@ public class _UserLoginFrame {
 			//읽을 행이 없는 경우, 로그인 실패로 간주한다.
 			if(rs.next()) {
 				String name = rs.getString("custname");
+				int userID = rs.getInt("custid");
 				JOptionPane.showMessageDialog(null, name + "님, 환영합니다!");
-				new _UserFrame(name).setVisible(true);
+				new _UserFrame(name).setVisible(true, userID);
 				frame.dispose();
 			}
 			else {
