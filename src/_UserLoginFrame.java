@@ -26,21 +26,6 @@ public class _UserLoginFrame {
 	private JTextField PWField;
 	private Connection conn;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					_UserLoginFrame window = new _UserLoginFrame();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

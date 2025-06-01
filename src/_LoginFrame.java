@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import Admin._AdminFrame;
+
 
 public class _LoginFrame {
 

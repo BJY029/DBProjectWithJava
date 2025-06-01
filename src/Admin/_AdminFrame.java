@@ -1,3 +1,4 @@
+package Admin;
 import java.awt.EventQueue;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

@@ -130,14 +130,14 @@ public class _PartsFrame {
 	
     private void submit() {
     	//각 필드의 입력을 받아온다.
-    	String partid = PartNameField.getText().trim(); 
+    	String partName = PartNameField.getText().trim(); 
     	String partprice = PartPriceField.getText().trim();
     	String partcnt = PartCntField.getText().trim();
     	String partdate = PartReceiptDateField.getText().trim();
     	String partcompany = PartCompanyField.getText().trim();
     	
     	//하나라도 빈 문장이 있는 경우, 회원가입을 금지
-    	if(partprice.isEmpty() ||partprice.isEmpty() || partcnt.isEmpty() || partdate.isEmpty() || partcompany.isEmpty() ) {
+    	if(partName.isEmpty() ||partprice.isEmpty() || partcnt.isEmpty() || partdate.isEmpty() || partcompany.isEmpty() ) {
     		JOptionPane.showMessageDialog(frame, "필수 정보를 모두 입력하세요.", "경고", JOptionPane.WARNING_MESSAGE);
     		return;
     	}
@@ -153,7 +153,7 @@ public class _PartsFrame {
     		//위에서 정의한 SQL을 미리 컴파일 된 준비된 문장으로 만든다
     		PreparedStatement psm = conn.prepareStatement(sql);
     		//SQL 쿼리에서 각 ? 자리에 정보를 넣는다.
-    		psm.setString(1, partprice);
+    		psm.setString(1, partName);
     		psm.setString(2, partprice);
     		psm.setString(3, partcnt);
     		psm.setString(4, partdate);
