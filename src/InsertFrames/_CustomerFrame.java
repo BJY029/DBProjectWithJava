@@ -43,7 +43,7 @@ public class _CustomerFrame {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1280, 780);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		//frame.getContentPane().setLayout(null);
 		

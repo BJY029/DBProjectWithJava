@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class _UserFrame {
 	private Connection conn;
@@ -27,7 +28,7 @@ public class _UserFrame {
 	 */
 	private void initialize(String name) {
 		frame = new JFrame(name);
-		frame.setBounds(100, 100, 1280, 720);
+		frame.setBounds(100, 100, 720, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -41,19 +42,21 @@ public class _UserFrame {
 		JLabel lblNewLabel = new JLabel("User mode");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 16));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(12, 10, 132, 37);
+		lblNewLabel.setBounds(12, 10, 105, 24);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton ViewBtn = new JButton("캠핑카 조회/에약하기");
+		ViewBtn.setBackground(new Color(255, 255, 128));
 		ViewBtn.addActionListener(e->ViewCampingCarAction());
 		ViewBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		ViewBtn.setBounds(149, 267, 282, 68);
+		ViewBtn.setBounds(12, 120, 680, 68);
 		frame.getContentPane().add(ViewBtn);
 		
-		JButton ShowBtn = new JButton("예약 내역 확인/변경하기");
+		JButton ShowBtn = new JButton("예약 내역 확인/변경하기 및 정비소 의뢰");
+		ShowBtn.setBackground(new Color(0, 255, 128));
 		ShowBtn.addActionListener(e->CheckRentAction());
 		ShowBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		ShowBtn.setBounds(149, 381, 282, 68);
+		ShowBtn.setBounds(12, 232, 680, 68);
 		frame.getContentPane().add(ShowBtn);
 		
 
