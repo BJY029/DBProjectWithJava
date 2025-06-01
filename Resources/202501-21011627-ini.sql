@@ -228,6 +228,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON DBTEST.Rent TO 'user1'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON DBTEST.Customer TO 'user1'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON DBTEST.CustRepair TO 'user1'@'localhost';
 GRANT SELECT ON DBTEST.Cars TO 'user1'@'localhost';
+GRANT SELECT ON DBTEST.RepairShop TO 'user1'@'localhost';
 flush privileges;
 
 insert into company values(1, '우리렌트카', '서울시 광진구', '010-1234-5678', '김우리', 'woori@email.com');

@@ -301,8 +301,11 @@ public class _UserViewCampingCarFrame {
 
     
 	// 작업중
-	private void showAvailableData(String carId) {
+	private void showAvailableData(String carName) {
 		try {
+			String carId = getCarID(carName);
+			if(carId == null) throw new Exception("차량 번호 불러오기 오류");
+			
 			PreparedStatement pstmt = conn.prepareStatement(
 					"select rentstart, DATE_ADD(rentstart, INTERVAL rentperiod DAY) as rentend, rentperiod from rent "
 							+ "where carid = ? and DATE_ADD(rentstart, INTERVAL rentperiod DAY) > CURDATE()");
@@ -321,6 +324,9 @@ public class _UserViewCampingCarFrame {
 					start = start.plusDays(1);
 				}
 			}
+			
+			System.out.println("불가능한 날짜 개수: " + unavailableDates.size());
+
 
 			// 가능한 날짜들을 저장할 리스트
 			DefaultListModel<String> model = new DefaultListModel<>();
@@ -346,6 +352,31 @@ public class _UserViewCampingCarFrame {
 
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(frame, "날짜 불러오기 실패: " + e.getMessage());
+		} catch(Exception ex) {
+			JOptionPane.showMessageDialog(frame, ex);
+		}
+	}
+	
+	private String getCarID(String carName) {
+		try {
+			String sql = "SELECT carid FROM cars WHERE carname like ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, carName);
+			ResultSet rs = pstmt.executeQuery();
+			
+			String carID = null;
+			if(rs.next()) {
+				carID = rs.getString("CarID");
+			}
+			
+			pstmt.close();
+			rs.close();
+			
+			return carID;
+			
+		}catch (SQLException ex) {
+			JOptionPane.showMessageDialog(frame, "데이터 조회 실패: " + ex.getMessage());
+			return null;
 		}
 	}
 	/*
