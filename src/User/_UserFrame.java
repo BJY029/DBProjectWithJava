@@ -45,7 +45,7 @@ public class _UserFrame {
 		lblNewLabel.setBounds(12, 10, 105, 24);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton ViewBtn = new JButton("캠핑카 조회/에약하기");
+		JButton ViewBtn = new JButton("캠핑카 조회/예약하기");
 		ViewBtn.setBackground(new Color(255, 255, 128));
 		ViewBtn.addActionListener(e->ViewCampingCarAction());
 		ViewBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
